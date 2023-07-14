@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Canvas Game</title>
+        <style>
+            #gameCanvas {
+                border: 1px solid black;
+            }
+        </style>
+        <script type="module">
+          import Game from './src/game.js';
+
+          window.onload = function() {
+              let canvas = document.getElementById('gameCanvas');
+              let game = new Game(canvas);
+              game.start();
+          }
+        </script>
+
+    </head>
+    <body>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+    </body>
+</html>
