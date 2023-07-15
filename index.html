@@ -2,21 +2,8 @@
 <html>
     <head>
         <title>Canvas Game</title>
-        <style>
-            #gameCanvas {
-                border: 1px solid black;
-            }
-        </style>
-        <script type="module">
-          import Game from './src/game.js';
-
-          window.onload = function() {
-              let canvas = document.getElementById('gameCanvas');
-              let game = new Game(canvas);
-              game.start();
-          }
-        </script>
-
+        <script type="module" src="./src/scripts/index.js"></script>
+        <link rel="stylesheet" href="./src/styles/index.css">
     </head>
     <body>
         <canvas id="gameCanvas" width="800" height="600"></canvas>
