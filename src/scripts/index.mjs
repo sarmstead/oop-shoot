@@ -1,4 +1,4 @@
-import Game from './game.js';
+import Game from './game.mjs';
 
 window.onload = function() {
   let canvas = document.getElementById('gameCanvas');
