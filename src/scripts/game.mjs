@@ -1,5 +1,5 @@
 import Player from './player.mjs'
-import Enemy from './enemy.mjs';
+import Enemy from './enemy.mjs'
 
 let downPressed = false
 let upPressed = false
@@ -8,7 +8,7 @@ export default class Game {
   constructor(canvas) {
     this.canvas = canvas;
     this.context = canvas.getContext('2d')
-    this.player = new Player(radius, canvas, 30, 100)
+    this.player = new Player('image__player', 438, 150, canvas, 30, 100)
     this.enemy = new Enemy(radius, canvas, 30, 100)
     this.objects = [this.player, this.enemy]
   }
@@ -27,8 +27,7 @@ export default class Game {
       this.player.moveUp()
     }
 
-    // let img = document.querySelector('img')
-    // this.context.drawImage(img, 0, 0)
+
     this.objects.forEach(obj => obj.draw())
   }
 

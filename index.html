@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Canvas Game</title>
-        <script type="module" src="./src/scripts/index.mjs"></script>
-        <link rel="stylesheet" href="./src/styles/index.css">
-    </head>
-    <body>
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
-    </body>
+
+<head>
+  <title>Canvas Game</title>
+  <script type="module" src="./src/scripts/index.mjs"></script>
+  <link rel="stylesheet" href="./src/styles/index.css">
+</head>
+
+<body>
+  <div class="image-set">
+    <img src="./src/images/player.svg" id="image__player">
+  </div>
+  <canvas id="gameCanvas" width="1000" height="600"></canvas>
+  <div class="invalid-screen">
+    <h1>Woah, now!</h1>
+    <p>Your browser needs to at least be 1000px wide to play this game. Pick up a bigger screen at your local Best Buy, silly nilly.</p>
+    <a href="https://www.bestbuy.com/site/store-locator" target="_blank"><button>Find a Best Buy</button></a>
+  </div>
+</body>
+
 </html>
