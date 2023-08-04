@@ -1,32 +1,35 @@
-import Circle from './circle.mjs';
-import { Hero, Enemy } from './player.mjs';
+import Player from './player.mjs'
+import Enemy from './enemy.mjs';
 
 let downPressed = false
 let upPressed = false
 let radius = 30
-let changeInY = 10
 export default class Game {
   constructor(canvas) {
     this.canvas = canvas;
-    this.context = canvas.getContext('2d');
-    this.circle = new Circle(this.context, - 70, canvas.height / 2, radius); // circle is initialized outside of the canvas bounding box
+    this.context = canvas.getContext('2d')
+    this.player = new Player(radius, canvas, 30, 100)
+    this.enemy = new Enemy(radius, canvas, 30, 100)
+    this.objects = [this.player, this.enemy]
+  }
 
+  addObject(obj) {
+    this.objects.push(obj)
   }
 
   update() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height); // clear all the pixels of the canvas, starting at grid points 0, 0
-    this.circle.x += 5; // every time update() is called, add 5 to its current x value
-    if (this.circle.x > this.canvas.width + radius) {
-      this.circle.x = - radius;
-    }
+
 
     if (downPressed) {
-      this.circle.y = Math.min(this.circle.y + changeInY, this.canvas.height - radius)
+     this.player.moveDown()
     } else if (upPressed) {
-      this.circle.y = Math.max(this.circle.y - changeInY, radius)
+      this.player.moveUp()
     }
 
-    this.circle.draw();
+    // let img = document.querySelector('img')
+    // this.context.drawImage(img, 0, 0)
+    this.objects.forEach(obj => obj.draw())
   }
 
   keydownHandler(event) {

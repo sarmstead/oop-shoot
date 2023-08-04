@@ -1,23 +1,17 @@
-class Player {
-  constructor(x, y, color, health) {
-    this.x = x;
-    this.y = y;
-    this.color = color;
-    this.health = health;
-  }
-}
+import Circle from './circle.mjs'
 
-export class Hero extends Player {
-  constructor(name, ...base) {
+export default class Player extends Circle {
+  constructor(...base) {
     super(...base)
-    this.name = name
+    this.v = 10
   }
-}
 
-export class Enemy extends Player {
-  constructor(height, width, ...base) {
-    super(...base)
-    this.height = height
-    this.width = width
+  moveUp() {
+  this.y = Math.max(this.y - this.v, this.radius)
+
+  }
+
+  moveDown() {
+    this.y = Math.min(this.y + this.v, this.canvas.height - this.radius)
   }
 }
